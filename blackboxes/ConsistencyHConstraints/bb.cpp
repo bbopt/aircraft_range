@@ -338,7 +338,7 @@ void Aero ( double   inputs [13] ,
                 double & L           ,
                 double & D           ,
                 double & LD          ,
-                double & Apg           ) const
+                double & Apg           )
 {
 
     double Cf     = inputs[2];
@@ -393,7 +393,7 @@ void Aero ( double   inputs [13] ,
     }
     else
     {
-        k=1.0/(MDO_PI*0.8*AR);
+        k=1.0/(Pi*0.8*AR);
     }
 
     //-----Polynomial function modifying CD for wing twist-----//
@@ -540,8 +540,7 @@ int allDisciplinesOnce ( double   inputs[13] ,
               double & Range      ,
               double & delta_ESF,
               double & delta_Wt,
-              double & delta_Theta
-                                ) const
+              double & delta_Theta )
 {
     // tESF, tWt and tTheta are scaled between 0 and 100.
     double tESF = inputs[10];
@@ -549,7 +548,7 @@ int allDisciplinesOnce ( double   inputs[13] ,
     double tTheta = inputs[12];
 
     // Discipline output variables
-    double We, L, Wt, Wf, theta, ESF, D, LD;
+    double We, L, Wt, Wf, theta, D, LD;
 
     // AERO
     Aero ( inputs , L , D , LD , Apg );
@@ -572,9 +571,9 @@ int allDisciplinesOnce ( double   inputs[13] ,
     Range = M * LD * 661.0 * pow(th,0.5) * log ( tWt / (tWt-Wf) ) / SFC;
     
     // Apply a scaling reversed from the variables.
-    delta_ESF = (tESF- ESF)/RANGE[10]*100.0;
-    delta_Wt = (tWt- Wt)/RANGE[11]*100.0;
-    delta_Theta = (tTheta - theta)/RANGE[12]*100;
+    delta_ESF = (tESF- ESF)/RANGE[10];
+    delta_Wt = (tWt- Wt)/RANGE[11];
+    delta_Theta = (tTheta - theta)/RANGE[12];
 
     return 1;
 }

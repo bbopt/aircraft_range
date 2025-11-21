@@ -84,7 +84,8 @@ int main ( int argc , char ** argv ) {
     int it = MDA ( inputs , Str , Apg , SFC , ESF , Tb , TbUA , Temp , Range , eps , max_it );
 
     // output display :
-    if (display) {
+    if (display)
+    {
         cout << "  it = " << it            << endl     // it
         << "   f = " << -Range        << endl     // f
         << "  g1 = " << Str[0] - 1.09 << endl     // g1
@@ -99,8 +100,9 @@ int main ( int argc , char ** argv ) {
         << " g10 = " << Temp - 1.02   << endl     // g10
         << endl;
     }
-    else {
-        cout /*<< it            << " "*/
+    else
+    {
+        cout
         << -Range        << " "
         << Str[0] - 1.09 << " "
         << Str[1] - 1.09 << " "
@@ -111,7 +113,8 @@ int main ( int argc , char ** argv ) {
         << 0.5 - ESF     << " "
         << ESF - 1.5     << " "
         << Tb - TbUA     << " "
-        << Temp - 1.02   << endl;
+        << Temp - 1.02   << " "
+        << it            << " " << endl;
     }
 
     return 0;
@@ -580,7 +583,8 @@ int MDA ( double   inputs[10] ,
 
         delta2 = fabs(We) + fabs(L) + fabs(Wt) + fabs(theta) + fabs(ESF) + fabs(D);
 
-        if (display) {
+        if (display)
+        {
             cout << "delta1 = " << delta1 << endl
             << "delta2 = We(" << We << ") + L(" << L << ") + Wt(" << Wt << ") + theta(" << theta
             << ")\n\t + ESF(" << ESF << ") + D(" << D << ") = " << delta2 << endl
