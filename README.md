@@ -8,7 +8,7 @@ Sobieszczanski-Sobieski, Agte and Sandusky, *Bi-Level Integrated System Synthesi
 
 The blackbox executable performs a multidisciplinary design analysis (MDA) of a coupled system of disciplines: structures, aerodynamics and propulsion. The objective is maximize the aircraft range computed using the Breguet range equation. The discipline computation relies on analytical expressions typical for an early conceptual design stage.
 
-Two variants of the blackbox are available, depending on how the MDA is managed for solving the disciplines coupling: (I) The coupling can be solved internally within the blackbox source code using a *fixed-point iterative method*. (II) Alternatively, the backward discipline coupling can be broken by introducing additional variables and *consistency equality constraints*. Note that the second variant necessitates an optimization algorithm capable of handling equality constraints effectively.
+**Two variants** of the blackbox are available, depending on how the MDA is managed for solving the disciplines coupling: (**I**) The coupling can be solved internally within the blackbox source code using a **fixed-point iterative method**. (**II**) Alternatively, the backward discipline coupling can be broken by introducing additional variables and **consistency equality constraints**. Note that the second variant necessitates an optimization algorithm capable of handling equality constraints effectively.
 
 ## Blackbox evaluation
 The blackbox C++ source code needs to be compiled using a C++ compiler to obtain a bb.exe binary file.
@@ -36,5 +36,6 @@ Ten different initial points are provided.
 
 ### Variable bounds
 All variables are scaled and bounded between 0 and 100. 
+Please note that in the blackbox code, the variables are handled in full scale after reading. 
 
 
