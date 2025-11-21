@@ -1,0 +1,20 @@
+# Parameter file for NOMAD
+
+DIMENSION 13
+
+DISPLAY_DEGREE 1
+
+DISPLAY_STATS BBE OBJ BBO
+stats_file stats.txt BBE BBO
+
+# TMP_DIR /tmp
+
+x0 x01.txt
+
+lower_bound *   0.0
+upper_bound * 100.0
+
+BB_EXE     bb.exe
+
+BB_OUTPUT_TYPE  OBJ PB PB PB PB PB PB PB PB PB PB EQPB EQPB EQPB
+
